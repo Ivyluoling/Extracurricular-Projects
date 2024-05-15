@@ -25,15 +25,20 @@ header {
 .button-alt {
     background-color: transparent;
     border-color: transparent;
-    color:  rgb(140, 0, 255);
+    color: rgb(140, 0, 255);
 }
 
 .button:hover {
-    background-color:  rgb(79, 10, 190);
+    background-color: rgb(79, 10, 190);
     border-color:rgb(79, 10, 190);
 }
 
 .button-alt:hover {
     background-color:  rgb(230, 201, 252);
-    color:  transparent;
+    border-color:  transparent;
+}
+
+footer {
+  margin-bottom: 2rem;
+  text-align: center;
 }

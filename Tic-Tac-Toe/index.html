@@ -8,19 +8,21 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <script src="tictactoe.js" defer></script>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="overlays.css">
-    <link rel="stylesheet" href="configuration-overlay.css">
-    <link rel="stylesheet" href="game.css">
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/game.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/overlays.css" />
+    <link rel="stylesheet" href="styles/configuration-overlay.css" />
+    <link rel="stylesheet" href="styles/game.css" />
   </head>
   <body>
-    <div id="backdrop">
-    </div>
+    <div id="backdrop"></div>
     <header>
       <h1>Play Tic, Tac, Toe</h1>
       <p id="description">
-        This is my first web development game project, have fun!
+        My first web game project - Build with HTML, CSS and JavaScript - Have
+        fun!
       </p>
     </header>
     <main>
@@ -29,11 +31,16 @@
         <form>
           <div class="form-control">
             <label for="">Player Name</label>
-            <input type="text" name="player-name" id="playername" />
+            <input type="text" name="playername" id="playername" required />
           </div>
+          <p id="config-error"></p>
           <div>
-            <button type="button" class="button button-alt">Cancel</button>
-            <button type="submit" class="button">Confirm</button>
+            <button type="reset" class="button button-alt" id="cancelbutton">
+              Cancel
+            </button>
+            <button type="submit" class="button" id="confirmbutton">
+              Confirm
+            </button>
           </div>
         </form>
       </aside>
@@ -42,48 +49,71 @@
           <li>
             <article>
               <h2>Player 1</h2>
-              <h3>PLAYER NAME</h3>
+              <h3 id="player-1">PLAYER NAME</h3>
               <p class="player-symbol">X</p>
-              <button class="edit" class="button button-alt">Edit</button>
+              <button
+                class="button button-alt"
+                id="edit-player-1-btn"
+                data-playerid="1"
+              >
+                Edit
+              </button>
             </article>
           </li>
           <li>
-            <h2>Player 2</h2>
-            <h3>PLAYER NAME</h3>
-            <p class="player-symbol">O</p>
-            <button class="edit" class="button button-alt">Edit</button>
+            <article>
+              <h2>Player 2</h2>
+              <h3 id="player-2">PLAYER NAME</h3>
+              <p class="player-symbol">O</p>
+              <button
+                class="button button-alt"
+                id="edit-player-2-btn"
+                data-playerid="2"
+              >
+                Edit
+              </button>
+            </article>
           </li>
         </ol>
         <button id="startgame" class="button">Start New Game</button>
+        <div id="name-error">
+          <p>Please set custom player names for both players!</p>
+          <button
+            type="submit"
+            class="button"
+            name="name-error-button"
+            id="name-error-button"
+          >
+            Ok
+          </button>
+        </div>
       </section>
       <section id="active-game">
-        <article>
-          <h3>You won, <span id="winner">PLAYER Name</span>, Congrats!</h3>
-          <p>Start A New Game, have fun!</p>
+        <article id="game-over">
+          <h2>You won, <span id="winner">PLAYER NAME</span>, Congrats!</h2>
+          <p>Click the "Start New Game" button, play again!</p>
         </article>
-        <ol>
-          <p>
-            It's your turn <span id="active-player-name">PLAYER NAME</span>!
-          </p>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+
+        <p>It's your turn <span id="active-player-name">PLAYER NAME</span>!</p>
+        <ol id="game-board">
+          <li data-row="1" data-col="1"></li>
+          <li data-row="1" data-col="2"></li>
+          <li data-row="1" data-col="3"></li>
+
+          <li data-row="2" data-col="1"></li>
+          <li data-row="2" data-col="2"></li>
+          <li data-row="2" data-col="3"></li>
+
+          <li data-row="3" data-col="1"></li>
+          <li data-row="3" data-col="2"></li>
+          <li data-row="3" data-col="3"></li>
         </ol>
       </section>
     </main>
-    <footer></footer>
+    <footer>
+      <p>
+        Ivyluoling &copy; 2024 Instructions from 2024 Web Development Bootcamp
+      </p>
+    </footer>
   </body>
 </html>
